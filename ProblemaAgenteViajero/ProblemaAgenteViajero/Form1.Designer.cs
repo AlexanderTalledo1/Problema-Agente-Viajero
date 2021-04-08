@@ -33,9 +33,9 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(666, 56);
+            this.btnGenerar.Location = new System.Drawing.Point(737, 100);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerar.Size = new System.Drawing.Size(164, 42);
             this.btnGenerar.TabIndex = 0;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 539);
+            this.ClientSize = new System.Drawing.Size(964, 633);
             this.Controls.Add(this.btnGenerar);
             this.Name = "frmPrincipal";
             this.Text = "Form1";

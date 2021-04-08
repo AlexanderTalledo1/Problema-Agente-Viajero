@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -84,12 +85,35 @@ namespace ProblemaAgenteViajero
                 //Tabla[]
             }
         }
-        public void Conectar_nodos()
+        public void Generar_camino(Graphics graphics)
+        {
+            GraphicsPath camino = new GraphicsPath();
+            Pen Pen = new Pen(Color.Black, 5);
+            Grafo grafo = new Grafo();
+            for (var i = 1; i < List_grafos.Count; i++)
+            {
+                int x1, x2, y1, y2;
+                
+               
+                x1 = List_grafos.ElementAt(i - 1).PosicionX + 20;
+                y1 = List_grafos.ElementAt(i - 1).PosicionY + 20;
+                y2 = List_grafos.ElementAt(i).PosicionY + 20;
+                x2 = List_grafos.ElementAt(i).PosicionX + 20;
+                                
+                camino.AddLine(x1, y1, x2, y2);
+               
+                graphics.DrawPath(Pen, camino);
+
+            }
+           
+        }       
+        public void Cerrar_camino(Graphics graphics)
         {
             foreach(Grafo grafo in List_grafos)
             {
-               
+
             }
         }
+       
     }
 }

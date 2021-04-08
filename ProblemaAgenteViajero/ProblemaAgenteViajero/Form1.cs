@@ -60,94 +60,52 @@ namespace ProblemaAgenteViajero
         {
             try
             {
-                //foreach (Grafo grafo in Lista_grafos.Obtener_grafos())
-                //{
-                //    for (int i = 0; i < Lista_grafos.Obtener_grafos().Count; i++)
-                //    {
-                //        Pen Lapiz = new Pen(Color.Black, 2);
 
-                //        Point[] Puntos = new Point[100];
-                //        GraphicsPath Camino = new GraphicsPath();
-                //        Puntos[i] = new Point(grafo.PosicionX, grafo.PosicionY);
-                //        Camino.AddPolygon(Puntos);
-                //        this.CreateGraphics().DrawPath(Lapiz,Camino);
-                //    }
-                //}
-
-                //for(int i=0;i< Lista_grafos;i++)
+                // GraphicsPath camino = new GraphicsPath();
+                //Pen Lapiz = new Pen(Color.Black, 1);
+                //Grafo graph = new Grafo();
+                //for(int i=0;i<Lista_grafos.Obtener_grafos().Count;i++)
                 //{
                 //    GraphicsPath camino = new GraphicsPath();
-                //    Point[] Puntos = new Point[100];
                 //    Pen Lapiz = new Pen(Color.Black, 2);
-                //    Grafo graph = new Grafo();
-                //    Puntos[i] = new Point(graph.PosicionX, graph.PosicionY);
+                //    Point[] Puntos = new Point[100];
+                //    Puntos[i] = new Point(graf.PosicionX, graph.Po);
                 //    camino.AddPolygon(Puntos);
-
                 //    this.CreateGraphics().DrawPath(Lapiz, camino);
                 //}
-                Point[] Puntos = new Point[100];
+
+
                 foreach (Grafo grafo in Lista_grafos.Obtener_grafos())
                 {
-
-
                     GraphicsPath camino = new GraphicsPath();
-                    Pen Lapiz = new Pen(Color.Black, 2);
-                    Puntos[grafo.Numero_grafo] = new Point(grafo.PosicionX + 20, grafo.PosicionY + 20);                
+                    Pen Lapiz = new Pen(Color.Black, 1);
+                    Point[] Puntos = new Point[100];
+                    Puntos[grafo.Numero_grafo] = new Point(grafo.PosicionX + 20, grafo.PosicionY + 20);
                     camino.AddPolygon(Puntos);
-                        //camino.add                 
                     this.CreateGraphics().DrawPath(Lapiz, camino);
-                   
-                   
                 }
-
+               //this.CreateGraphics().DrawPath(Lapiz,camino);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
             }
            
-        }
-        //private void Generar_camino_grafos()
-        //{
-        //    Pen Lapiz = new Pen(Color.Black, 2);
-        //   //foreach(Grafo Grafo in Lista_grafos.Obtener_grafos())
-        //   //{
-        //     Point[] puntos =
-        //     {
-        //         new Point(20,20),
-        //        new Point(200,60),
-        //        new Point(180,240),
-        //        new Point(50,270),
-        //        new Point(100,40),
-        //        new Point(10,100)
-        //         //new Point(Grafo.PosicionX,Grafo.PosicionY),
-        //     };
-        //     GraphicsPath Camino = new GraphicsPath();
-        //     Camino.AddPolygon(puntos);
-        //     this.CreateGraphics().DrawPath(Lapiz, Camino);
-           
-             
-        //    for(int i=0;i<Lista_grafos.Obtener_grafos().Count;i++)           
-        //    {
-
-           
-        //    }
-
-        //   //}                            
-        //}
+        }        
         private void frmPrincipal_MouseClick(object sender, MouseEventArgs e)
         {
-            Contador +=1;
+            Contador ++;
             Grafo grafo = new Grafo
             {
                 PosicionX = e.X,
                 PosicionY = e.Y,
                 Numero_grafo =Contador,
             };
+
             Lista_grafos.Insertar_grafos(grafo);
             Generar_coordenadas_grafo();
-            
+           
             //Generar_camino_grafos();
         }
 
@@ -158,7 +116,9 @@ namespace ProblemaAgenteViajero
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            Generar_camino_grafos();
+            //Generar_camino_grafos();
+            Lista_grafos.Generar_camino(this.CreateGraphics());
+            //Lista_grafos.Graphs_connected(this.CreateGraphics());
         }
     }
 }

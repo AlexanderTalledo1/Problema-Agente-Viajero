@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnDistancia = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGenerar
@@ -41,11 +42,22 @@
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
+            // btnDistancia
+            // 
+            this.btnDistancia.Location = new System.Drawing.Point(737, 343);
+            this.btnDistancia.Name = "btnDistancia";
+            this.btnDistancia.Size = new System.Drawing.Size(164, 42);
+            this.btnDistancia.TabIndex = 1;
+            this.btnDistancia.Text = "Distancia";
+            this.btnDistancia.UseVisualStyleBackColor = true;
+            this.btnDistancia.Click += new System.EventHandler(this.btnDistancia_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 633);
+            this.Controls.Add(this.btnDistancia);
             this.Controls.Add(this.btnGenerar);
             this.Name = "frmPrincipal";
             this.Text = "Form1";
@@ -59,6 +71,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.Button btnDistancia;
     }
 }
 

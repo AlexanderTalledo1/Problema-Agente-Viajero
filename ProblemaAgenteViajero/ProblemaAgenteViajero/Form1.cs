@@ -16,14 +16,17 @@ namespace ProblemaAgenteViajero
     {
         readonly Grafo GetGrafo = new Grafo();
         readonly ListaGrafos Lista_grafos = new ListaGrafos();
-
+     
         public string Nombre { get; set; }
         public int Contador = 0;
+
+       
 
           //Rectangle Rect = new Rectangle();
         public frmPrincipal()
         {
-            InitializeComponent();     
+            InitializeComponent();
+
         }      
         private void frmPrincipal_Load(object sender, EventArgs e) 
         {         
@@ -95,17 +98,18 @@ namespace ProblemaAgenteViajero
         }        
         private void frmPrincipal_MouseClick(object sender, MouseEventArgs e)
         {
-            Contador ++;
+            Contador++;
             Grafo grafo = new Grafo
             {
+               
+                Numero_grafo =Contador,
                 PosicionX = e.X,
                 PosicionY = e.Y,
-                Numero_grafo =Contador,
             };
-
+          
             Lista_grafos.Insertar_grafos(grafo);
             Generar_coordenadas_grafo();
-           
+
             //Generar_camino_grafos();
         }
 
@@ -117,8 +121,32 @@ namespace ProblemaAgenteViajero
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             //Generar_camino_grafos();
-            Lista_grafos.Generar_camino(this.CreateGraphics());
-            //Lista_grafos.Graphs_connected(this.CreateGraphics());
+            try
+            {
+                
+                Lista_grafos.Generar_camino(this.CreateGraphics());
+                Lista_grafos.Cerrar_camino(this.CreateGraphics());
+              
+                 //Lista_grafos.Adicionar_arista(this.CreateGraphics());
+                 //Lista_grafos.Graphs_connected(this.CreateGraphics());
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al generar el camino");
+            }
+           
+        }
+
+        private void btnDistancia_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Lista_grafos.Calcular_distancia().ToString());
+        }
+
+        private void pImagen_Paint(object sender, PaintEventArgs e)
+        {
+         
+            Generar_coordenadas_grafo();
         }
     }
 }

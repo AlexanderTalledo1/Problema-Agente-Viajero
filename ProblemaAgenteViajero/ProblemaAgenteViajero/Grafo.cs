@@ -57,13 +57,39 @@ namespace ProblemaAgenteViajero
         {
             return Matriz_adyacencia[pFila, pColumna];
         }
-        
         public double Calcular_distancia(int x1, int x2, int y1, int y2)
         {                     
             int CalcularX = x2 - x1;
             int CalcularY = y2 - y1;
             double Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
             return Distancia;            
+        }
+        public double Calcular_distanciax1(int x,double y)
+        {
+            double Distancia;
+            for (int i =x; i >=1; i--)
+            {
+                int CalcularX = List_grafos.ElementAt(i).PosicionX - List_grafos.ElementAt(i-1).PosicionX;
+                int CalcularY = List_grafos.ElementAt(i).PosicionY - List_grafos.ElementAt(i - 1).PosicionY;
+                Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
+                y += Distancia;
+            }
+                return y;
+        }
+        public double Select_grafo(int x1, int y1,int z)
+        {
+           
+            for (int i = 1; i < List_grafos.Count; i++)
+            {
+                if ((List_grafos.ElementAt(i).PosicionX+40>=x1&&x1>= List_grafos.ElementAt(i).PosicionX)&&
+                   (List_grafos.ElementAt(i).PosicionY + 40 >= y1 && y1 >= List_grafos.ElementAt(i).PosicionY) )
+                {
+                    z = i;
+                }
+                
+            }
+
+            return Calcular_distanciax1(z,0);
         }
         public void Generar_camino(Graphics graphics)
         {

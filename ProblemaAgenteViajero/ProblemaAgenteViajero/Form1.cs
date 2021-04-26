@@ -115,7 +115,16 @@ namespace ProblemaAgenteViajero
 
         private void frmPrincipal_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = "Canidadad de nodos: "+ Lista_grafos.Obtener_grafos().Count+" " +"Coordenada x: " + e.X + " Coordenada y: "+ e.Y;
+            if (Lista_grafos.List_grafos.Count>0)
+            {
+            Lista_grafos.Select_grafo(e.X, e.Y,0);
+
+            this.Text = "Canidadad de nodos: "+ Lista_grafos.Obtener_grafos().Count+" " +"Coordenada x: " + e.X + " Coordenada y: "+ e.Y+"distancia"+ Lista_grafos.Select_grafo(e.X, e.Y, 0);
+            }
+            else
+            {
+                this.Text = "Canidadad de nodos: " + Lista_grafos.Obtener_grafos().Count + " " + "Coordenada x: " + e.X + " Coordenada y: " + e.Y;
+            }
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)

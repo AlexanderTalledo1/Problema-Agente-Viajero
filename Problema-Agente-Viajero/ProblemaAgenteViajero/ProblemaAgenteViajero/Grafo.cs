@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace ProblemaAgenteViajero
 {
+   
     public class Grafo
     {
         public int Numero_grafo { get; set; }
@@ -64,18 +65,6 @@ namespace ProblemaAgenteViajero
             double Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
             return Distancia;            
         }
-        public double Calcular_distanciax1(int x,double y)
-        {
-            double Distancia;
-            for (int i =x; i >=1; i--)
-            {
-                int CalcularX = List_grafos.ElementAt(i).PosicionX - List_grafos.ElementAt(i-1).PosicionX;
-                int CalcularY = List_grafos.ElementAt(i).PosicionY - List_grafos.ElementAt(i - 1).PosicionY;
-                Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
-                y += Distancia;
-            }
-                return y;
-        }
         public double Select_grafo(int x1, int y1,int z)
         {
            
@@ -89,8 +78,10 @@ namespace ProblemaAgenteViajero
                 
             }
 
-            return Calcular_distanciax1(z,0);
+            return Calcular_distancia(List_grafos.ElementAt(0).PosicionX, List_grafos.ElementAt(z).PosicionX
+                , List_grafos.ElementAt(0).PosicionY, List_grafos.ElementAt(z).PosicionY);
         }
+
         public void Generar_camino(Graphics graphics)
         {
             GraphicsPath camino = new GraphicsPath();
@@ -104,7 +95,10 @@ namespace ProblemaAgenteViajero
               x2 = List_grafos.ElementAt(i).PosicionX + 20;
               camino.AddLine(x1, y1, x2, y2);
               graphics.DrawPath(Pen, camino);
-          }         
+
+                //Recorrer todos los nodos
+                //y identificar desde el nodo inicial cual conecta con el otro nodo para hayar la distancia mas corta
+            }
         }
         public void Cerrar_camino(Graphics graphics)
         {

@@ -65,6 +65,18 @@ namespace ProblemaAgenteViajero
             double Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
             return Distancia;            
         }
+        public double Calcular_distanciax1(int x, double y)
+        {
+            double Distancia;
+            for (int i = x; i >= 1; i--)
+            {
+                int CalcularX = List_grafos.ElementAt(i).PosicionX - List_grafos.ElementAt(i - 1).PosicionX;
+                int CalcularY = List_grafos.ElementAt(i).PosicionY - List_grafos.ElementAt(i - 1).PosicionY;
+                Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
+                y += Distancia;
+            }
+            return y;
+        }
         public double Select_grafo(int x1, int y1,int z)
         {
            
@@ -78,8 +90,7 @@ namespace ProblemaAgenteViajero
                 
             }
 
-            return Calcular_distancia(List_grafos.ElementAt(0).PosicionX, List_grafos.ElementAt(z).PosicionX
-                , List_grafos.ElementAt(0).PosicionY, List_grafos.ElementAt(z).PosicionY);
+            return Calcular_distanciax1(z, 0);
         }
 
         public void Generar_camino(Graphics graphics)

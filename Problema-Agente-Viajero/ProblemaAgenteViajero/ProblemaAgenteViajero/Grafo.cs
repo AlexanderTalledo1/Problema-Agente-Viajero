@@ -16,20 +16,28 @@ namespace ProblemaAgenteViajero
     public class Grafo
     {
         public int Numero_grafo { get; set; }
+        public string Departamento { get; set; }
         public int PosicionX { get; set; }//coordenada X
         public int PosicionY { get; set; }//coordenada y
-        public double Distancia { get; set; }
+        
         public Grafo()
         {
             this.Numero_grafo = 0;
             this.PosicionX = 0;
             this.PosicionY = 0;
-        }       
+        }
+        public Grafo(int numero_grafo,int posicionX,int posicionY,string departamento)
+        {
+            this.Numero_grafo = numero_grafo;
+            this.PosicionX = posicionX;
+            this.PosicionY = posicionY;
+            this.Departamento = departamento;
+        }      
         public void Dibujar_grafo(Graphics graphics,Brush solid,Size size, Grafo grafo)
         {
             if (this.PosicionX < size.Width && this.PosicionY < size.Height)
             {                
-                graphics.FillEllipse(solid, grafo.PosicionX, grafo.PosicionY, 40, 40);                                           
+                graphics.FillEllipse(solid, grafo.PosicionX-9, grafo.PosicionY-5, 30, 30);                                           
             }            
         }
     }
@@ -54,6 +62,10 @@ namespace ProblemaAgenteViajero
         {
             List_grafos.Add(grafo);
         }
+        public void Insert_graph(int index, Grafo grafo)
+        {
+            List_grafos.Insert(index, grafo);
+        }
         public int Obtener_Adyacencia(int pFila, int pColumna)
         {
             return Matriz_adyacencia[pFila, pColumna];
@@ -64,18 +76,6 @@ namespace ProblemaAgenteViajero
             int CalcularY = y2 - y1;
             double Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
             return Distancia;            
-        }
-        public double Calcular_distanciax1(int x, double y)
-        {
-            double Distancia;
-            for (int i = x; i >= 1; i--)
-            {
-                int CalcularX = List_grafos.ElementAt(i).PosicionX - List_grafos.ElementAt(i - 1).PosicionX;
-                int CalcularY = List_grafos.ElementAt(i).PosicionY - List_grafos.ElementAt(i - 1).PosicionY;
-                Distancia = Math.Sqrt(Math.Pow(CalcularX, 2) + Math.Pow(CalcularY, 2));
-                y += Distancia;
-            }
-            return y;
         }
         public double Select_grafo(int x1, int y1,int z)
         {
@@ -90,7 +90,8 @@ namespace ProblemaAgenteViajero
                 
             }
 
-            return Calcular_distanciax1(z, 0);
+            return Calcular_distancia(List_grafos.ElementAt(0).PosicionX, List_grafos.ElementAt(z).PosicionX
+                , List_grafos.ElementAt(0).PosicionY, List_grafos.ElementAt(z).PosicionY);
         }
 
         public void Generar_camino(Graphics graphics)
@@ -100,16 +101,40 @@ namespace ProblemaAgenteViajero
             for (int i = 1; i < List_grafos.Count; i++)
             {               
               int x1, x2, y1, y2;
-              x1 = List_grafos.ElementAt(i-1).PosicionX + 20;
-              y1 = List_grafos.ElementAt(i-1).PosicionY + 20;
-              y2 = List_grafos.ElementAt(i).PosicionY + 20;
-              x2 = List_grafos.ElementAt(i).PosicionX + 20;
+              x1 = List_grafos.ElementAt(i-1).PosicionX ;
+              y1 = List_grafos.ElementAt(i-1).PosicionY;
+              y2 = List_grafos.ElementAt(i).PosicionY ;
+              x2 = List_grafos.ElementAt(i).PosicionX;
+
               camino.AddLine(x1, y1, x2, y2);
               graphics.DrawPath(Pen, camino);
 
                 //Recorrer todos los nodos
                 //y identificar desde el nodo inicial cual conecta con el otro nodo para hayar la distancia mas corta
             }
+        }
+        public void Camino_punto_a_punto(Graphics graphics, Grafo Inicial, Grafo Final)
+        {
+            Grafo grafo = new Grafo();
+
+            GraphicsPath camino = new GraphicsPath();
+            Pen Pen = new Pen(Color.Black, 5);                     
+          
+            //camino.AddLine(Inicial.PosicionX, Inicial.PosicionY, Final.PosicionX, Final.PosicionY);             
+            //graphics.DrawPath(Pen, camino);
+
+            for (int i = 1; i<List_grafos.Count;i++)
+            {
+                grafo.PosicionX = List_grafos.ElementAt(i).PosicionX;
+                grafo.PosicionY = List_grafos.ElementAt(i).PosicionY;
+                if(Math.Sqrt(Math.Pow(Inicial.PosicionX-grafo.PosicionX, 2) + Math.Pow(Inicial.PosicionY-grafo.PosicionY, 2))>
+                    Math.Sqrt(Math.Pow(Final.PosicionX - grafo.PosicionX, 2) + Math.Pow(Final.PosicionY - grafo.PosicionY, 2)))
+                {
+                    camino.AddLine(Inicial.PosicionX, Inicial.PosicionY, grafo.PosicionX, grafo.PosicionY);
+                    graphics.DrawPath(Pen, camino);
+                }
+              
+            }           
         }
         public void Cerrar_camino(Graphics graphics)
         {
@@ -119,10 +144,10 @@ namespace ProblemaAgenteViajero
             foreach(Grafo Grafo in Obtener_grafos())
             {                
                 int x1,y1,x2, y2;
-                x1 = List_grafos.ElementAt(0).PosicionX + 20;
-                y1 = List_grafos.ElementAt(0).PosicionY + 20;
-                x2 = List_grafos.ElementAt(contador).PosicionX + 20;
-                y2 = List_grafos.ElementAt(contador).PosicionY + 20;
+                x1 = List_grafos.ElementAt(0).PosicionX;
+                y1 = List_grafos.ElementAt(0).PosicionY ;
+                x2 = List_grafos.ElementAt(contador).PosicionX;
+                y2 = List_grafos.ElementAt(contador).PosicionY ;
                 camino.AddLine(x2, y2, x1, y1);
                 graphics.DrawPath(Pen, camino);
             }
@@ -167,9 +192,23 @@ namespace ProblemaAgenteViajero
             }
             return suma_distancias;
         }      
+        public void Filas_Columnas()
+        {            
+            for(int filas=0;filas<List_grafos.Count;filas++)
+            {
+                for(int columnas=0;columnas<List_grafos.Count;columnas++)
+                {
+                    Matriz_adyacencia[filas,columnas] = Matriz_adyacencia[List_grafos.Count,List_grafos.Count];
+                }
+            }
+        }
         public List<Grafo> Encontrar_grafo_por_numero(int grafo)
         {
             return Obtener_grafos().FindAll(x => x.Numero_grafo.Equals(grafo));
+        }
+        public List<Grafo> Encontrar_grafo_por_nombre(string depa)
+        {
+            return Obtener_grafos().FindAll(x => x.Departamento.Equals(depa));
         }
     }
 }

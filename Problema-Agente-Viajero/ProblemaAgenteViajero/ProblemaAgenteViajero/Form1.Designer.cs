@@ -32,12 +32,21 @@
             this.btnDistancia = new System.Windows.Forms.Button();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.listboxGrafos = new System.Windows.Forms.ListBox();
+            this.btnNodo = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textInicio = new System.Windows.Forms.TextBox();
+            this.textFinal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbxInicio = new System.Windows.Forms.ComboBox();
+            this.cbxFinal = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(660, 24);
+            this.btnGenerar.Location = new System.Drawing.Point(1079, 362);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(164, 42);
             this.btnGenerar.TabIndex = 0;
@@ -47,7 +56,7 @@
             // 
             // btnDistancia
             // 
-            this.btnDistancia.Location = new System.Drawing.Point(660, 90);
+            this.btnDistancia.Location = new System.Drawing.Point(1079, 639);
             this.btnDistancia.Name = "btnDistancia";
             this.btnDistancia.Size = new System.Drawing.Size(164, 42);
             this.btnDistancia.TabIndex = 1;
@@ -60,7 +69,7 @@
             this.pbxImagen.Image = global::ProblemaAgenteViajero.Properties.Resources.Mapa_peru;
             this.pbxImagen.Location = new System.Drawing.Point(12, 3);
             this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(616, 687);
+            this.pbxImagen.Size = new System.Drawing.Size(615, 688);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagen.TabIndex = 2;
             this.pbxImagen.TabStop = false;
@@ -72,16 +81,103 @@
             // listboxGrafos
             // 
             this.listboxGrafos.FormattingEnabled = true;
-            this.listboxGrafos.Location = new System.Drawing.Point(650, 244);
+            this.listboxGrafos.Location = new System.Drawing.Point(679, 521);
             this.listboxGrafos.Name = "listboxGrafos";
-            this.listboxGrafos.Size = new System.Drawing.Size(189, 446);
+            this.listboxGrafos.Size = new System.Drawing.Size(361, 160);
             this.listboxGrafos.TabIndex = 3;
+            // 
+            // btnNodo
+            // 
+            this.btnNodo.Location = new System.Drawing.Point(1079, 501);
+            this.btnNodo.Name = "btnNodo";
+            this.btnNodo.Size = new System.Drawing.Size(164, 42);
+            this.btnNodo.TabIndex = 6;
+            this.btnNodo.Text = "NodoANodo";
+            this.btnNodo.UseVisualStyleBackColor = true;
+            this.btnNodo.Click += new System.EventHandler(this.btnNodo_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(961, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Inicio";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(961, 218);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Final";
+            // 
+            // textInicio
+            // 
+            this.textInicio.Location = new System.Drawing.Point(873, 85);
+            this.textInicio.Name = "textInicio";
+            this.textInicio.Size = new System.Drawing.Size(202, 20);
+            this.textInicio.TabIndex = 11;
+            // 
+            // textFinal
+            // 
+            this.textFinal.Location = new System.Drawing.Point(873, 249);
+            this.textFinal.Name = "textFinal";
+            this.textFinal.Size = new System.Drawing.Size(202, 20);
+            this.textFinal.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(734, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Inicio";
+            // 
+            // cbxInicio
+            // 
+            this.cbxInicio.FormattingEnabled = true;
+            this.cbxInicio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbxInicio.Location = new System.Drawing.Point(673, 84);
+            this.cbxInicio.Name = "cbxInicio";
+            this.cbxInicio.Size = new System.Drawing.Size(121, 21);
+            this.cbxInicio.TabIndex = 15;
+            // 
+            // cbxFinal
+            // 
+            this.cbxFinal.FormattingEnabled = true;
+            this.cbxFinal.Location = new System.Drawing.Point(673, 210);
+            this.cbxFinal.Name = "cbxFinal";
+            this.cbxFinal.Size = new System.Drawing.Size(121, 21);
+            this.cbxFinal.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(734, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Final";
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 713);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ClientSize = new System.Drawing.Size(1294, 725);
+            this.Controls.Add(this.cbxFinal);
+            this.Controls.Add(this.cbxInicio);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textFinal);
+            this.Controls.Add(this.textInicio);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnNodo);
             this.Controls.Add(this.listboxGrafos);
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.btnDistancia);
@@ -93,6 +189,7 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmPrincipal_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -102,6 +199,15 @@
         private System.Windows.Forms.Button btnDistancia;
         private System.Windows.Forms.PictureBox pbxImagen;
         private System.Windows.Forms.ListBox listboxGrafos;
+        private System.Windows.Forms.Button btnNodo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textInicio;
+        private System.Windows.Forms.TextBox textFinal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbxInicio;
+        private System.Windows.Forms.ComboBox cbxFinal;
+        private System.Windows.Forms.Label label4;
     }
 }
 

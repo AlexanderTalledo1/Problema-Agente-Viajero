@@ -204,6 +204,7 @@
             this.cbxFinal.Name = "cbxFinal";
             this.cbxFinal.Size = new System.Drawing.Size(121, 21);
             this.cbxFinal.TabIndex = 16;
+            this.cbxFinal.SelectedIndexChanged += new System.EventHandler(this.cbxFinal_SelectedIndexChanged);
             // 
             // label4
             // 

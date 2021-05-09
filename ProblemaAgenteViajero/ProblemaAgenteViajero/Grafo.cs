@@ -84,7 +84,7 @@ namespace ProblemaAgenteViajero
                 for (int i = 1; i < List_grafos.Count; i++)
             {
                 if ((List_grafos.ElementAt(i).PosicionX+42>=x1&&x1>= List_grafos.ElementAt(i).PosicionX)&&
-                   (List_grafos.ElementAt(i).PosicionY + 40 >= y1 && y1 >= List_grafos.ElementAt(i).PosicionY) )
+                   (List_grafos.ElementAt(i).PosicionY + 4>= y1 && y1 >= List_grafos.ElementAt(i).PosicionY) )
                 {
                     z = i;
                 }
@@ -146,9 +146,7 @@ namespace ProblemaAgenteViajero
             camino.AddLine(List_grafos.ElementAt(9).PosicionX, List_grafos.ElementAt(9).PosicionY,
                 List_grafos.ElementAt(18).PosicionX, List_grafos.ElementAt(18).PosicionY);
             graphics.DrawPath(Pen, camino);
-            camino.AddLine(List_grafos.ElementAt(18).PosicionX, List_grafos.ElementAt(18).PosicionY,
-               List_grafos.ElementAt(7).PosicionX, List_grafos.ElementAt(7).PosicionY);
-            graphics.DrawPath(Pen, camino);
+           
             camino.AddLine(List_grafos.ElementAt(7).PosicionX, List_grafos.ElementAt(7).PosicionY,
                List_grafos.ElementAt(16).PosicionX, List_grafos.ElementAt(16).PosicionY);
             graphics.DrawPath(Pen, camino);
@@ -172,9 +170,7 @@ namespace ProblemaAgenteViajero
             camino.AddLine(List_grafos.ElementAt(20).PosicionX, List_grafos.ElementAt(20).PosicionY,
                List_grafos.ElementAt(14).PosicionX, List_grafos.ElementAt(14).PosicionY);
             graphics.DrawPath(Pen, camino);
-            camino.AddLine(List_grafos.ElementAt(14).PosicionX, List_grafos.ElementAt(14).PosicionY,
-               List_grafos.ElementAt(13).PosicionX, List_grafos.ElementAt(13).PosicionY);
-            graphics.DrawPath(Pen, camino);
+            
             camino.AddLine(List_grafos.ElementAt(5).PosicionX, List_grafos.ElementAt(5).PosicionY,
                List_grafos.ElementAt(14).PosicionX, List_grafos.ElementAt(14).PosicionY);
             graphics.DrawPath(Pen, camino);
@@ -229,22 +225,22 @@ namespace ProblemaAgenteViajero
               
             }           
         }
-        public void Cerrar_camino(Graphics graphics)
-        {
-            GraphicsPath camino = new GraphicsPath();
-            Pen Pen = new Pen(Color.Purple, 5);            
-            int contador = List_grafos.Count()-1;
-            foreach(Grafo Grafo in Obtener_grafos())
-            {                
-                int x1,y1,x2, y2;
-                x1 = List_grafos.ElementAt(0).PosicionX;
-                y1 = List_grafos.ElementAt(0).PosicionY ;
-                x2 = List_grafos.ElementAt(contador).PosicionX;
-                y2 = List_grafos.ElementAt(contador).PosicionY ;
-                camino.AddLine(x2, y2, x1, y1);
-                graphics.DrawPath(Pen, camino);
-            }
-        }       
+        //public void Cerrar_camino(Graphics graphics)
+        //{
+        //    GraphicsPath camino = new GraphicsPath();
+        //    Pen Pen = new Pen(Color.Purple, 5);            
+        //    int contador = List_grafos.Count()-1;
+        //    foreach(Grafo Grafo in Obtener_grafos())
+        //    {                
+        //        int x1,y1,x2, y2;
+        //        x1 = List_grafos.ElementAt(0).PosicionX;
+        //        y1 = List_grafos.ElementAt(0).PosicionY ;
+        //        x2 = List_grafos.ElementAt(contador).PosicionX;
+        //        y2 = List_grafos.ElementAt(contador).PosicionY ;
+        //        camino.AddLine(x2, y2, x1, y1);
+        //        graphics.DrawPath(Pen, camino);
+        //    }
+        //}       
         public int Obtener_resta_cordenada_X()
         {
             int coordenadasX = 0;

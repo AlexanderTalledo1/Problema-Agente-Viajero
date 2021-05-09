@@ -16,7 +16,8 @@ namespace ProblemaAgenteViajero
     {
         readonly Grafo GetGrafo = new Grafo();
         readonly ListaGrafos Lista_grafos = new ListaGrafos();
-        readonly city GetCity = new city();
+        
+        city GetCity ;
 
         public string Nombre { get; set; }
         public int Contador = 1;
@@ -117,7 +118,9 @@ namespace ProblemaAgenteViajero
 
         private void btnDistancia_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Lista_grafos.Calcular_distancia().ToString());
+            //MessageBox.Show(Lista_grafos.Calcular_distancia().ToString());
+            GetCity.buscar_camino();
+            MessageBox.Show(GetCity.getdistancia().ToString()+ GetCity.getcamino().ToString());
         }
 
         private void pbxImagen_Paint(object sender, PaintEventArgs e)
@@ -212,30 +215,30 @@ namespace ProblemaAgenteViajero
             switch (cbxInicio.SelectedIndex)
             {
    
-                case 0:  new city(1, 77, 186, "Tumbes") ;break;
-                case 1:new city(2, 84, 228, "Piura");; break;
-                case 2:new city(3, 101, 264, "Lambayeque");; break;
-                case 3:new city(4, 162, 320, "LaLibertad");; break;
-                case 4:new city(5, 194, 370, "Ancash");; break;
-                case 5:new city(6, 232, 439, "Lima");; break;
-                case 6:new city(7, 282, 523, "Ica"); ;break;
-                case 7:new city(8, 403, 574, "Arequipa"); ;break;
-                case 8:new city(9, 473, 617, "Moquegua"); ;break;
-                case 9:new city(10, 501, 646, "Tacna"); ;break;
-               case 10:new city(11, 150, 270, "Cajamarca"); ;break;
-               case 11:new city(12, 258, 365, "Huanuco");; break;
-               case 12:new city(13, 287, 400, "Pasco");; break;
-               case 13:new city(14, 303, 436, "Junin"); ;break;
-               case 14:new city(15, 304, 483, "Huancavelica"); ;break;
-               case 15:new city(16, 341, 518, "Ayacucho"); ;break;
-               case 16:new city(17, 392, 513, "Apurímac"); ;break;
-               case 17:new city(18, 417, 481, "Cusco");; break;
-               case 18:new city(19, 508, 540, "Puno");; break;
-               case 19:new city(20, 487, 449, "Madre de Dios");; break;
-               case 20:new city(21, 367, 379, "Ucayali");; break;
-               case 21:new city(22, 232, 294, "San Martin");; break;
-               case 22:new city(23, 175, 230, "Amazonas");; break;
-               case 23:new city(24, 303, 205, "Loreto");; break;
+                case 0:  GetCity =new city(1, 77, 186, "Tumbes") ;break;
+                case 1:  GetCity =new city(2, 84, 228, "Piura");; break;
+                case 2:  GetCity =new city(3, 101, 264, "Lambayeque");; break;
+                case 3:  GetCity =new city(4, 162, 320, "LaLibertad");; break;
+                case 4:  GetCity =new city(5, 194, 370, "Ancash");; break;
+                case 5:  GetCity =new city(6, 232, 439, "Lima");; break;
+                case 6:  GetCity =new city(7, 282, 523, "Ica"); ;break;
+                case 7:  GetCity =new city(8, 403, 574, "Arequipa"); ;break;
+                case 8:  GetCity =new city(9, 473, 617, "Moquegua"); ;break;
+                case 9:  GetCity =new city(10, 501, 646, "Tacna"); ;break;
+               case 10:  GetCity =new city(11, 150, 270, "Cajamarca"); ;break;
+               case 11:  GetCity =new city(12, 258, 365, "Huanuco");; break;
+               case 12:  GetCity =new city(13, 287, 400, "Pasco");; break;
+               case 13:  GetCity =new city(14, 303, 436, "Junin"); ;break;
+               case 14:  GetCity =new city(15, 304, 483, "Huancavelica"); ;break;
+               case 15:  GetCity =new city(16, 341, 518, "Ayacucho"); ;break;
+               case 16:  GetCity =new city(17, 392, 513, "Apurímac"); ;break;
+               case 17:  GetCity =new city(18, 417, 481, "Cusco");; break;
+               case 18:  GetCity =new city(19, 508, 540, "Puno");; break;
+               case 19:  GetCity =new city(20, 487, 449, "Madre de Dios");; break;
+               case 20:  GetCity =new city(21, 367, 379, "Ucayali");; break;
+               case 21:  GetCity =new city(22, 232, 294, "San Martin");; break;
+               case 22:  GetCity =new city(23, 175, 230, "Amazonas");; break;
+               case 23:  GetCity = new city(24, 303, 205, "Loreto");; break;
             }
         }
 
@@ -243,31 +246,31 @@ namespace ProblemaAgenteViajero
         {
             switch (cbxFinal.SelectedIndex)
             {
-                case 0:; break;
-                case 1:; break;
-                case 2:; break;
-                case 3:; break;
-                case 4:; break;
-                case 5:; break;
-                case 6:; break;
-                case 7:; break;
-                case 8:; break;
-                case 9:; break;
-                case 10:; break;
-                case 11:; break;
-                case 12:; break;
-                case 13:; break;
-                case 14:; break;
-                case 15:; break;
-                case 16:; break;
-                case 17:; break;
-                case 18:; break;
-                case 19:; break;
-                case 20:; break;
-                case 21:; break;
-                case 22:; break;
+                case 0:this.GetCity.addestino(1); break;
+                case 1: this.GetCity.addestino(2); break;
+                case 2: this.GetCity.addestino(3); break;
+                case 3: this.GetCity.addestino(4); break;
+                case 4: this.GetCity.addestino(5); break;
+                case 5: this.GetCity.addestino(6); break;
+                case 6: this.GetCity.addestino(7); break;
+                case 7: this.GetCity.addestino(8); break;
+                case 8: this.GetCity.addestino(9); break;
+                case 9: this.GetCity.addestino(10); break;
+                case 10:this.GetCity.addestino(11); break;
+                case 11:this.GetCity.addestino(12); break;
+                case 12:this.GetCity.addestino(13); break;
+                case 13:this.GetCity.addestino(14); break;
+                case 14:this.GetCity.addestino(15); break;
+                case 15:this.GetCity.addestino(16); break;
+                case 16:this.GetCity.addestino(17); break;
+                case 17:this.GetCity.addestino(18); break;
+                case 18:this.GetCity.addestino(19); break;
+                case 19:this.GetCity.addestino(20); break;
+                case 20:this.GetCity.addestino(21); break;
+                case 21:this.GetCity.addestino(22); break;
+                case 22: this.GetCity.addestino(23); break;
 
-                case 23:; break;
+                case 23: this.GetCity.addestino(24); break;
             }
         }
     }

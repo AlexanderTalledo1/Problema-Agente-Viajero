@@ -10,6 +10,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 namespace ProblemaAgenteViajero
 {
     static class Constants
@@ -22,7 +24,7 @@ namespace ProblemaAgenteViajero
         public int nodei { get; set; }
         public int nodef { get; set; }// El nodo destino de la arista.
         public int cost { get; set; } // El costo de la arista.
-        public Edge(int _nodei,int _node, int _cost)  { this.nodef = _node;this.cost = _cost;this.nodei=_nodei } // Constructor parametrizado.
+        public Edge(int _nodei,int _node, int _cost)  { this.nodef = _node;this.cost = _cost;this.nodei = _nodei; } // Constructor parametrizado.
         public Edge() { this.nodef = -1; this.cost = -1; this.nodei = -1; } // Constructor por defecto.
     };
     class Graph
@@ -37,10 +39,67 @@ namespace ProblemaAgenteViajero
             this.E = 32;
             this.List_edges.Add(new Edge(1,2,287));
             this.List_edges.Add(new Edge(2,1,287));
-            this.List_edges.Add(new Edge(3,));
-            this.List_edges.Add(new Edge());
-            this.List_edges.Add(new Edge());
-            this.List_edges.Add(new Edge());
+            this.List_edges.Add(new Edge(3,2,194));
+            this.List_edges.Add(new Edge(2,3,194));
+            this.List_edges.Add(new Edge(3,4,385));
+            this.List_edges.Add(new Edge(4,3,385));
+            this.List_edges.Add(new Edge(5, 4, 295));
+            this.List_edges.Add(new Edge(4, 5, 295));
+            this.List_edges.Add(new Edge(5,6,427));
+            this.List_edges.Add(new Edge(6,5,427));
+            this.List_edges.Add(new Edge(6,7,310));
+            this.List_edges.Add(new Edge(7,6,310));
+            this.List_edges.Add(new Edge(7, 8, 708));
+            this.List_edges.Add(new Edge(8, 7, 708));
+            this.List_edges.Add(new Edge(8,9,223));
+            this.List_edges.Add(new Edge(9,8,223));
+            this.List_edges.Add(new Edge(9,10,160));
+            this.List_edges.Add(new Edge(10,9,160));
+            this.List_edges.Add(new Edge(1,24,692));
+            this.List_edges.Add(new Edge(24, 1, 692));
+            this.List_edges.Add(new Edge(24,21,594));
+            this.List_edges.Add(new Edge(21,24,594));
+            this.List_edges.Add(new Edge(21,20,329));
+            this.List_edges.Add(new Edge(20,21,329));
+            this.List_edges.Add(new Edge(20, 19, 461));
+            this.List_edges.Add(new Edge(19, 20, 461));
+            this.List_edges.Add(new Edge(19,10,402));
+            this.List_edges.Add(new Edge(10,19,402));
+            this.List_edges.Add(new Edge(1,11,739));
+            this.List_edges.Add(new Edge(11,1,739));
+            this.List_edges.Add(new Edge(11, 23, 232));
+            this.List_edges.Add(new Edge(23, 11, 232));
+            this.List_edges.Add(new Edge(23,24,442));
+            this.List_edges.Add(new Edge(24,23,442));
+            this.List_edges.Add(new Edge(4,22,207));
+            this.List_edges.Add(new Edge(22,4,207));
+            this.List_edges.Add(new Edge(22, 24, 345));
+            this.List_edges.Add(new Edge(24, 22, 345));
+            this.List_edges.Add(new Edge(22,12,305));
+            this.List_edges.Add(new Edge(12,22,305));
+            this.List_edges.Add(new Edge(12,13,132));
+            this.List_edges.Add(new Edge(13,12,132));
+            this.List_edges.Add(new Edge(13, 14, 101));
+            this.List_edges.Add(new Edge(14, 13, 101));
+            this.List_edges.Add(new Edge(14,15,269));
+            this.List_edges.Add(new Edge(15,14,269));
+            this.List_edges.Add(new Edge(6,15,387));
+            this.List_edges.Add(new Edge(15,6,387));
+            this.List_edges.Add(new Edge(7,16, 312));
+            this.List_edges.Add(new Edge(16, 7, 312));
+            this.List_edges.Add(new Edge(16,17,157));
+            this.List_edges.Add(new Edge(17,16,157));
+            this.List_edges.Add(new Edge(17,18,134));
+            this.List_edges.Add(new Edge(18,17,134));
+            this.List_edges.Add(new Edge(21, 18, 430));
+            this.List_edges.Add(new Edge(18, 21, 430));
+            this.List_edges.Add(new Edge(18,20,233));
+            this.List_edges.Add(new Edge(20,18,233));
+            this.List_edges.Add(new Edge(17,8,311));
+            this.List_edges.Add(new Edge(8,17,311));
+            this.List_edges.Add(new Edge(8, 19, 310));
+            this.List_edges.Add(new Edge(19, 8, 310));
+
         }
        
     };
@@ -129,10 +188,10 @@ namespace ProblemaAgenteViajero
         {
             return camino.ToArray();
         }
-        public int algoritmo()
+        public int algoritmo(int begin, int end, Graph graph)
         {
-            priority_queue<State> pq = new priority_queue<State>(); // La cola de prioridad.
-            List<int> Dist = new List<int>(graph.V, oo); // La distancia hacia todos los vertices. Inicialmente para cada vertice su valor es infinito.
+            Queue<State> pq = new Queue<State>(); // La cola de prioridad.
+            vector<int> Dist = new List<int>(graph.V, 0x3f3f3f3f); // La distancia hacia todos los vertices. Inicialmente para cada vertice su valor es infinito.
             List<bool> mark = new List<bool>(graph.V, false); // Este arreglo nos permitira determinar los nodos procesados.Dist
 
             Dist[begin] = 0; // Valor inicial del vertice de partida.
@@ -161,7 +220,7 @@ namespace ProblemaAgenteViajero
             }
             return -1; // Si no se puede llegar al destino, retornar -1.
         }
-
+     
 
     }
 

@@ -48,3 +48,13 @@ C:\Users\Poma\Desktop\Problema-Agente-Viajero-main\Problema-Agente-Viajero\Probl
 C:\Users\Poma\Desktop\Problema-Agente-Viajero-main\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.csproj.CoreCompileInputs.cache
 C:\Users\Poma\Desktop\Problema-Agente-Viajero-main\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.exe
 C:\Users\Poma\Desktop\Problema-Agente-Viajero-main\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.pdb
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.csprojAssemblyReference.cache
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.frmPrincipal.resources
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.Properties.Resources.resources
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.csproj.GenerateResource.cache
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.csproj.CoreCompileInputs.cache
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.exe
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\obj\Debug\ProblemaAgenteViajero.pdb
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\bin\Debug\ProblemaAgenteViajero.exe.config
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\bin\Debug\ProblemaAgenteViajero.exe
+C:\Users\DYLAND\Desktop\Problema-Agente-Viajero\ProblemaAgenteViajero\ProblemaAgenteViajero\bin\Debug\ProblemaAgenteViajero.pdb

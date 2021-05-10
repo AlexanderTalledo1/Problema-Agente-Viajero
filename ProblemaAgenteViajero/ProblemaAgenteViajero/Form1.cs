@@ -119,8 +119,8 @@ namespace ProblemaAgenteViajero
         private void btnDistancia_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(Lista_grafos.Calcular_distancia().ToString());
-            GetCity.buscar_camino();
-            MessageBox.Show(GetCity.getdistancia().ToString()+ GetCity.getcamino().ToString());
+            //GetCity.buscar_camino();
+            //MessageBox.Show(GetCity.getdistancia().ToString()+ GetCity.getcamino().ToString());
         }
 
         private void pbxImagen_Paint(object sender, PaintEventArgs e)
@@ -155,10 +155,8 @@ namespace ProblemaAgenteViajero
         {
             try
             {
-
                 Lista_grafos.Generar_camino(pbxImagen.CreateGraphics());
-                
-
+             
             }
             catch
             {

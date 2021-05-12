@@ -1,0 +1,9 @@
+C:\Users\Poma\Desktop\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.vcxprojAssemblyReference.cache
+C:\Users\Poma\Desktop\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.MyForm.resources
+C:\Users\Poma\Desktop\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.vcxproj.GenerateResource.cache
+C:\Users\DYLAND\Downloads\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.vcxprojAssemblyReference.cache
+C:\Users\DYLAND\Downloads\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.MyForm.resources
+C:\Users\DYLAND\Downloads\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.vcxproj.GenerateResource.cache
+C:\Users\Poma\Desktop\Nueva carpeta\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.vcxprojAssemblyReference.cache
+C:\Users\Poma\Desktop\Nueva carpeta\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.MyForm.resources
+C:\Users\Poma\Desktop\Nueva carpeta\AgenteViajeroCmas\AgenteViajeroCmas\x64\Debug\AgenteViajeroCmas.vcxproj.GenerateResource.cache
